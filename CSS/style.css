@@ -1,0 +1,412 @@
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    font-family: "Cairo", sans-serif;
+}
+/* Container */
+.container {
+    max-width: 1536px;
+    margin: auto;
+    padding: 10px 80px;
+}
+@media(max-width: 1280px) {
+    .container {
+        max-width: 1280px;
+        margin: auto;
+        padding: 10px 60px;
+    } 
+}
+@media(max-width: 1024px) {
+    .container {
+        max-width: 1024px;
+        margin: auto;
+        padding: 10px 50px;
+    } 
+}
+@media(max-width: 768px) {
+    .container {
+        max-width: 768px;
+        margin: auto;
+        padding: 10px 40px;
+    } 
+}
+@media(max-width: 640px) {
+    .container {
+        max-width: 640px;
+        margin: auto;
+        padding: 10px 20px;
+    } 
+}
+/* Section One */
+/* Header */
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.logo img {
+    cursor: pointer;
+    width: 110px;
+    height: 25px;
+}
+.navbar ul {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+.navbar a {
+    position: relative;
+    z-index: 2;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    font-size: 18px;
+    font-weight: 700;
+    padding: 5px 8px;
+    color: #000;
+}
+.navbar a::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: -100%;
+    width: 100%;
+    height: 3.5px;
+    transition: .5s;
+    background: #1F64FF;
+}
+.navbar a:hover {
+    transition: all ease-in-out .1s;
+    color: #1F64FF;
+}
+.navbar a:hover::before {
+    left: 0;
+}
+#menu-icon {
+    cursor: pointer;
+    display: none;
+    font-size: 40px;
+    z-index: 1000;
+    color: #000;
+}
+/* Header ( Responsive ) */
+@media(max-width: 1020px) {
+    .navbar ul {
+        gap: 10px;
+    }
+    .navbar a {
+        font-size: 17px;
+    }
+}
+@media(max-width: 867px) {
+    #menu-icon {
+        display: initial;
+        z-index: 1002;
+    }
+    .navbar ul {
+        position: absolute;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        width: 100%;
+        padding: 28px;
+        top: 60px;
+        right: 1200px;
+        z-index: 1001;
+        transition: all linear 0.3s;
+        background: #EFEFEF;
+    }
+    .navbar ul.active {
+        right: 0;
+
+    }
+}
+/* Section One Content */
+.section-one-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 60px;
+}
+.section-one-text h1 {
+    font-size: 38px;
+    font-weight: 700;
+    line-height: 1.4;
+}
+.section-one-text h1 span {
+    font-size: 45px;
+    font-weight: 900;
+}
+.section-one-text h3 {
+    margin: 40px 0;
+}
+.section-one-button a {
+    position: relative;
+    z-index: 2;
+    font-size: 20px;
+    font-weight: 700;
+    border-radius: 8px;
+}
+.section-one-button a {
+    padding: 5px 60px;
+    border: 2px solid #1F64FF;
+    color: #FFF;
+    background: #1F64FF;
+}
+.section-one-button a:hover {
+    transition: all ease 0.3s;
+    border: 2px solid #1F64FF;
+    color: #1F64FF;
+    background: #FFF;
+}
+.section-one-image img {
+    position: relative;
+    width: 700px;
+    height: 485px;
+    z-index: 2;
+    box-shadow: 2px 2px 0px #EEE;
+}
+/* Section One Responsive */
+@media(max-width: 1160px) {
+    .section-one-image img {
+        width: 600px;
+    }
+}
+@media(max-width: 1060px) {
+    .section-one-image img {
+        width: 500px;
+        box-shadow: 0 0 0;
+        margin-top: 40px;
+    }
+}
+@media(max-width: 960px) {
+    .section-one-image img {
+        width: 450px;
+        margin-top: 25px;
+    }
+}
+@media(max-width: 867px) {
+    .section-one-content {
+        flex-direction: column;
+    }
+    .section-one-image img {
+        width: 550px;
+        margin: 0;
+    }
+    .section-one-text {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+    .section-one-text h1 , .section-one-content h3 {
+        text-align: center;
+    }
+}
+@media(max-width: 620px) {
+    .section-one-image img {
+        width: 400px;
+        height: 340px;
+    }
+}
+@media(max-width: 450px) {
+    .section-one-image img {
+        width: 320px;
+    }
+}
+/* Float Circles */
+.circles {
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+@keyframes circleAnimation {
+    0% {
+        opacity: .1;
+        border-radius: 50%;
+        transform: translateY(0) rotate(0deg);
+    }
+    100% {
+        opacity: 0;
+        border-radius: 75%;
+        transform: translateY(-1000px) rotate(720deg);
+    }
+}
+.circles > div {
+    position: absolute;
+    display: block;
+    width: 20px;
+    height: 20px;
+    bottom: 0;
+    animation: circleAnimation 25s linear infinite;
+    background: #1F64FF;
+}
+.circles > div:nth-child(1) {
+    left: 10%;
+    width: 40px;
+    height: 40px;
+    animation-delay: 0s;
+    animation-duration: 8s;
+}
+.circles > div:nth-child(2) {
+    left: 20%;
+    width: 25px;
+    height: 25px;
+    animation-delay: 0s;
+    animation-duration: 10s;
+}
+.circles > div:nth-child(3) {
+    left: 30%;
+    width: 40px;
+    height: 40px;
+    animation-delay: 0s;
+    animation-duration: 12s;
+}
+.circles > div:nth-child(4) {
+    left: 40%;
+    width: 25px;
+    height: 25px;
+    animation-delay: 0s;
+    animation-duration: 8s;
+}
+.circles > div:nth-child(5) {
+    left: 50%;
+    width: 40px;
+    height: 40px;
+    animation-delay: 0s;
+    animation-duration: 10s;
+}
+.circles > div:nth-child(6) {
+    left: 60%;
+    width: 28px;
+    height: 28px;
+    animation-delay: 0s;
+    animation-duration: 12s;
+}
+.circles > div:nth-child(7) {
+    left: 70%;
+    width: 40px;
+    height: 40px;
+    animation-delay: 0s;
+    animation-duration: 8s;
+}
+.circles > div:nth-child(8) {
+    left: 80%;
+    width: 30px;
+    height: 30px;
+    animation-delay: 0s;
+    animation-duration: 10s;
+}
+.circles > div:nth-child(9) {
+    left: 90%;
+    width: 40px;
+    height: 40px;
+    animation-delay: 0s;
+    animation-duration: 12s;
+}
+.circles > div:nth-child(10) {
+    left: 96%;
+    width: 36px;
+    height: 36px;
+    animation-delay: 0s;
+    animation-duration: 8s;
+}
+.circles > div:nth-child(11) {
+    left: 5%;
+    bottom: 60%;
+    width: 60px;
+    height: 60px;
+    animation-delay: 0s;
+    animation-duration: 10s;
+}
+.circles > div:nth-child(12) {
+    left: 10%;
+    bottom: 50%;
+    width: 40px;
+    height: 40px;
+    animation-delay: 0s;
+    animation-duration: 8s;
+}
+.circles > div:nth-child(13) {
+    left: 45%;
+    bottom: 40%;
+    width: 40px;
+    height: 40px;
+    animation-delay: 0s;
+    animation-duration: 8s;
+}
+.circles > div:nth-child(14) {
+    left: 55%;
+    bottom: 30%;
+    width: 50px;
+    height: 50px;
+    animation-delay: 0s;
+    animation-duration: 8s;
+}
+.circles > div:nth-child(15) {
+    left: 65%;
+    bottom: 20%;
+    width: 38px;
+    height: 38px;
+    animation-delay: 0s;
+    animation-duration: 8s;
+}
+.circles > div:nth-child(16) {
+    left: 75%;
+    bottom: 10%;
+    width: 26px;
+    height: 26px;
+    animation-delay: 0s;
+    animation-duration: 8s;
+}
+.circles > div:nth-child(17) {
+    left: 13%;
+    bottom: 18%;
+    width: 42px;
+    height: 42px;
+    animation-delay: 0s;
+    animation-duration: 8s;
+}
+.circles > div:nth-child(18) {
+    left: 35%;
+    bottom: 17%;
+    width: 31px;
+    height: 31px;
+    animation-delay: 0s;
+    animation-duration: 9s;
+}
+.circles > div:nth-child(19) {
+    left: 60%;
+    bottom: 40%;
+    width: 35px;
+    height: 35px;
+    animation-delay: 0s;
+    animation-duration: 7s;
+}
+.circles > div:nth-child(20) {
+    left: 53%;
+    bottom: 20%;
+    width: 36px;
+    height: 36px;
+    animation-delay: 0s;
+    animation-duration: 10s;
+}
+.circles > div:nth-child(21) {
+    left: 33%;
+    bottom: 40%;
+    width: 30px;
+    height: 30px;
+    animation-delay: 0s;
+    animation-duration: 10s;
+}
+/* Section Two */
